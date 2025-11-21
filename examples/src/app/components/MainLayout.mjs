@@ -72,6 +72,36 @@ class MainLayout extends TypedComponent {
                     jsx(Route, { exact: true, path: '/' }, jsx(Redirect, { to: '/misc/hello-world' })),
                     jsx(
                         Route,
+                        { exact: true, path: '/viewer' },
+                        jsx(
+                            'div',
+                            {
+                                style: {
+                                    width: '100%',
+                                    height: '100vh',
+                                    margin: 0,
+                                    padding: 0,
+                                    overflow: 'hidden',
+                                    position: 'fixed',
+                                    top: 0,
+                                    left: 0,
+                                    zIndex: 1000
+                                }
+                            },
+                            jsx('iframe', {
+                                src: '/viewer.html',
+                                style: {
+                                    width: '100%',
+                                    height: '100%',
+                                    border: 'none',
+                                    display: 'block'
+                                },
+                                allow: 'fullscreen'
+                            })
+                        )
+                    ),
+                    jsx(
+                        Route,
                         { path: '/:category/:example' },
                         jsx(SideBar, null),
                         jsx(
