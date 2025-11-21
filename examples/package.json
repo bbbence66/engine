@@ -11,7 +11,7 @@
     "clean": "node ./scripts/clean.mjs",
     "develop": "cross-env NODE_ENV=development concurrently --kill-others \"npm run watch\" \"npm run serve\"",
     "lint": "eslint .",
-    "serve": "serve dist -l 5555 --no-request-logging --config ../serve.json",
+    "serve": "serve dist -l 3000 --no-request-logging --config ../serve.json",
     "watch": "npm run -s build:metadata && cross-env NODE_ENV=development rollup -c -w"
   },
   "devDependencies": {
@@ -47,5 +47,14 @@
     "sharp": "0.34.5"
   },
   "author": "PlayCanvas <support@playcanvas.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.937.0",
+    "@playcanvas/splat-transform": "^0.15.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mime-types": "^3.0.2",
+    "multer": "^2.0.2"
+  }
 }
